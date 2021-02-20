@@ -1,0 +1,54 @@
+{
+  "name": "asciidoctor-color",
+  "version": "0.0.1",
+  "description": "Asciidoctor extension to add search, sort, filters and flexibility to your AsciiDoc lists and tables",
+  "main": "dist/node/asciidoctor-list.js",
+  "browser": "dist/browser/asciidoctor-list.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "standard",
+    "test": "mocha",
+    "clean": "rm -rf dist/*",
+    "dist": "npm run clean && npm run dist:browser && npm run dist:node",
+    "dist:browser": "mkdir -p dist/browser && browserify src/asciidoctor-list.js --standalone AsciidoctorList -o dist/browser/asciidoctor-list.js",
+    "dist:node": "mkdir -p dist/node && cp src/**.js dist/node/"
+  },
+  "keywords": [
+    "asciidoctor",
+    "extension",
+    "list",
+    "table",
+    "filter",
+    "sort",
+    "search"
+  ],
+  "author": "Guillaume Grossetie (https://github.com/mogztter)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mogztter/asciidoctor-list/issues"
+  },
+  "homepage": "https://github.com/Mogztter/asciidoctor-list",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@asciidoctor/core": "^2.0.0",
+    "browserify": "16.5.0",
+    "chai": "4.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "list.js": "^2.3.1",
+    "mocha": "6.2.2",
+    "slugify": "^1.4.6",
+    "standard": "14.3.1"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "ignore": [
+      "/dist/"
+    ]
+  }
+}
